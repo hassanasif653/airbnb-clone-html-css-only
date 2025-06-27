@@ -1,0 +1,219 @@
+/* Default Light Theme */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.theme-wrapper {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Theme Toggle Switch */
+.toggle-switch {
+  width: 50px;
+  height: 24px;
+  background-color: #ccc;
+  border-radius: 12px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+.switch-thumb {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s;
+}
+
+/* When checkbox is checked = dark mode */
+#mode-toggle:checked + .theme-wrapper {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+#mode-toggle:checked + .theme-wrapper .navbar,
+#mode-toggle:checked + .theme-wrapper .search-container,
+#mode-toggle:checked + .theme-wrapper .card,
+#mode-toggle:checked + .theme-wrapper .footer-columns,
+#mode-toggle:checked + .theme-wrapper .footer-bottom {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+#mode-toggle:checked + .theme-wrapper .card-info h3,
+#mode-toggle:checked + .theme-wrapper .card-info p,
+#mode-toggle:checked + .theme-wrapper .footer-col h4,
+#mode-toggle:checked + .theme-wrapper .footer-col ul li a {
+  color: #ddd;
+}
+
+#mode-toggle:checked + .theme-wrapper .switch-thumb {
+  left: 28px;
+}
+
+/* --- Rest of your design --- */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 1.8rem;
+  color: #ff385c;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  width: 40%;
+  max-width: 400px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: none;
+  color: inherit;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.search-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-links a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #ff385c;
+  text-decoration: underline;
+}
+
+.hero {
+  background: url('hero.jpg') center/cover no-repeat;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.listings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-info {
+  padding: 1rem;
+}
+
+.card-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+.card-info p {
+  color: #777;
+  font-size: 0.95rem;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #f0f0f0;
+  padding: 2rem 1rem;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.footer-col h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.4rem;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #555;
+  transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ff385c;
+}
+
+.footer-bottom {
+  background-color: #eaeaea;
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: #555;
+  border-top: 1px solid #ddd;
+}
