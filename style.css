@@ -1,77 +1,35 @@
-/* Default Light Theme */
+/* Base Styles (All Screens) */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   background-color: #f9f9f9;
   color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
 
 .theme-wrapper {
-  transition: background-color 0.3s, color 0.3s;
+  transition: all 0.3s ease;
+  min-height: 100vh;
 }
 
-/* Theme Toggle Switch */
-.toggle-switch {
-  width: 50px;
-  height: 24px;
-  background-color: #ccc;
-  border-radius: 12px;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  margin-left: 1rem;
-}
-.switch-thumb {
-  content: '';
-  width: 20px;
-  height: 20px;
-  background: white;
-  border-radius: 50%;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  transition: left 0.3s;
-}
-
-/* When checkbox is checked = dark mode */
-#mode-toggle:checked + .theme-wrapper {
-  background-color: #121212;
-  color: #f0f0f0;
-}
-
-#mode-toggle:checked + .theme-wrapper .navbar,
-#mode-toggle:checked + .theme-wrapper .search-container,
-#mode-toggle:checked + .theme-wrapper .card,
-#mode-toggle:checked + .theme-wrapper .footer-columns,
-#mode-toggle:checked + .theme-wrapper .footer-bottom {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
-}
-
-#mode-toggle:checked + .theme-wrapper .card-info h3,
-#mode-toggle:checked + .theme-wrapper .card-info p,
-#mode-toggle:checked + .theme-wrapper .footer-col h4,
-#mode-toggle:checked + .theme-wrapper .footer-col ul li a {
-  color: #ddd;
-}
-
-#mode-toggle:checked + .theme-wrapper .switch-thumb {
-  left: 28px;
-}
-
-/* --- Rest of your design --- */
-
+/* Header/Navbar */
 .navbar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 5%;
   background-color: white;
   border-bottom: 1px solid #eee;
+  gap: 1.5rem;
 }
 
 .logo {
   font-size: 1.8rem;
   color: #ff385c;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 .search-container {
@@ -79,131 +37,196 @@ body {
   align-items: center;
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 25px;
+  border-radius: 30px;
   overflow: hidden;
-  width: 40%;
-  max-width: 400px;
+  flex: 1;
+  min-width: 200px;
+  max-width: 600px;
+  transition: all 0.3s ease;
 }
 
 .search-input {
   flex: 1;
-  padding: 0.6rem 1rem;
+  padding: 0.8rem 1.2rem;
   border: none;
   outline: none;
   font-size: 1rem;
-  background: none;
-  color: inherit;
+  background: transparent;
 }
 
 .search-btn {
-  background: none;
+  padding: 0 1rem;
+  background: transparent;
   border: none;
-  padding: 0.5rem 1rem;
   cursor: pointer;
 }
 
 .search-btn img {
   width: 20px;
   height: 20px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
 }
 
 .nav-links a {
-  margin-left: 1.5rem;
   text-decoration: none;
   color: #555;
-  font-weight: bold;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.2s;
 }
 
 .nav-links a:hover {
   color: #ff385c;
-  text-decoration: underline;
 }
 
+.toggle-switch {
+  width: 50px;
+  height: 26px;
+  background-color: #ddd;
+  border-radius: 13px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.switch-thumb {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+#mode-toggle:checked ~ .theme-wrapper .toggle-switch {
+  background-color: #444;
+}
+
+#mode-toggle:checked ~ .theme-wrapper .switch-thumb {
+  transform: translateX(24px);
+}
+
+/* Hero Section */
 .hero {
-  background: url('hero.jpg') center/cover no-repeat;
-  height: 300px;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+              url('hero.jpg') center/cover no-repeat;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #fff;
+  padding: 0 5%;
 }
 
 .hero-content {
-  background-color: rgba(0, 0, 0, 0.5);
+  max-width: 800px;
   padding: 2rem;
-  border-radius: 10px;
 }
 
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+/* Listings Grid */
 .listings {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 5%;
 }
 
 .card {
+  flex: 1 1 300px;
+  max-width: 350px;
   background-color: #fff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
 }
 
 .card-info {
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .card-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
-  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #222;
 }
 
 .card-info p {
-  color: #777;
+  color: #666;
   font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Footer */
+.footer {
+  background-color: #f0f0f0;
+  padding-top: 3rem;
 }
 
 .footer-columns {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  background-color: #f0f0f0;
-  padding: 2rem 1rem;
-  gap: 1.5rem;
-  text-align: left;
+  justify-content: space-between;
+  padding: 0 5% 2rem;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-col {
+  flex: 1 1 200px;
+  min-width: 180px;
 }
 
 .footer-col h4 {
   font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  color: #333;
+  margin-bottom: 1.2rem;
+  color: #222;
 }
 
 .footer-col ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .footer-col ul li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
 }
 
 .footer-col ul li a {
   text-decoration: none;
   color: #555;
-  transition: color 0.2s ease;
+  transition: color 0.2s;
 }
 
 .footer-col ul li a:hover {
@@ -212,8 +235,159 @@ body {
 
 .footer-bottom {
   background-color: #eaeaea;
-  padding: 1rem;
-  font-size: 0.85rem;
-  color: #555;
+  padding: 1.5rem 5%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
   border-top: 1px solid #ddd;
+}
+
+/* Dark Mode Styles */
+#mode-toggle:checked + .theme-wrapper {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+#mode-toggle:checked + .theme-wrapper .navbar,
+#mode-toggle:checked + .theme-wrapper .search-container,
+#mode-toggle:checked + .theme-wrapper .card,
+#mode-toggle:checked + .theme-wrapper .footer {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+#mode-toggle:checked + .theme-wrapper .card-info h3,
+#mode-toggle:checked + .theme-wrapper .footer-col h4 {
+  color: #fff;
+}
+
+#mode-toggle:checked + .theme-wrapper .card-info p,
+#mode-toggle:checked + .theme-wrapper .footer-col ul li a {
+  color: #ccc;
+}
+
+/* Tablet (768px - 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .navbar {
+    padding: 1rem 3%;
+  }
+  
+  .hero {
+    height: 350px;
+  }
+  
+  .hero-content h2 {
+    font-size: 2.2rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+  
+  .listings {
+    padding: 2rem 3%;
+    gap: 1.5rem;
+  }
+  
+  .card {
+    flex: 1 1 calc(50% - 1.5rem);
+    max-width: calc(50% - 1.5rem);
+  }
+  
+  .footer-columns {
+    padding: 0 3% 2rem;
+  }
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .search-container {
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .nav-links {
+    order: 3;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .toggle-switch {
+    order: 4;
+    margin: 0 auto;
+  }
+  
+  .hero {
+    height: 300px;
+    padding: 0 1rem;
+  }
+  
+  .hero-content {
+    padding: 1.5rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .listings {
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+  
+  .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  
+  .footer-columns {
+    flex-direction: column;
+    padding: 0 1rem 1.5rem;
+    gap: 2rem;
+  }
+  
+  .footer-col {
+    min-width: 100%;
+  }
+  
+  .footer-bottom {
+    padding: 1rem;
+  }
+}
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+  .navbar {
+    padding: 1rem 8%;
+  }
+  
+  .hero {
+    height: 450px;
+  }
+  
+  .hero-content h2 {
+    font-size: 3rem;
+  }
+  
+  .listings {
+    padding: 4rem 8%;
+    gap: 2.5rem;
+  }
+  
+  .footer-columns {
+    padding: 0 8% 3rem;
+  }
 }
